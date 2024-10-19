@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SenangWebs Modals Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css">
+    <link rel="stylesheet" href="../dist/swm.css">
+    <style>
+        pre[class*="language-"] {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen p-8">
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-3xl font-bold text-center mb-8">SenangWebs Modals Demo</h1>
+        
+        <h2 class="text-2xl font-bold mb-4">HTML Attribute-based Modals</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div data-swm id="centerModal">
+                    <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mb-4" 
+                            data-swm-btn data-swm-title="Center Modal" data-swm-position="center"
+                            data-swm-bg-color="#000000" data-swm-bg-opacity="0.5">
+                        Center Modal
+                    </button>
+                    <div data-swm-body>
+                        <p class="text-gray-700">This is a centered modal with default background color and 50% opacity.</p>
+                    </div>
+                </div>
+                <pre><code class="language-html">&lt;div data-swm id="centerModal"&gt;
+    &lt;button data-swm-btn 
+            data-swm-title="Center Modal" 
+            data-swm-position="center"
+            data-swm-bg-color="#000000"
+            data-swm-bg-opacity="0.5"&gt;
+        Center Modal
+    &lt;/button&gt;
+    &lt;div data-swm-body&gt;
+        &lt;p&gt;This is a centered modal with default background color and 50% opacity.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                <button onclick="SWM.openModal('#centerModal')" class="mt-4 w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+                    Open Center Modal via API
+                </button>
+                <pre><code class="language-javascript">SWM.openModal('#centerModal');</code></pre>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div data-swm id="customStyledModal">
+                    <button class="w-full bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded mb-4" 
+                            data-swm-btn data-swm-title="Custom Styled Modal" data-swm-position="top right" 
+                            data-swm-bg-color="#8e44ad" data-swm-bg-opacity="0.8" data-swm-bg-blur="3" data-swm-z-index="9999"
+                            data-swm-footer="Custom Footer">
+                        Custom Styled Modal
+                    </button>
+                    <div data-swm-body>
+                        <h3 class="text-xl font-bold mb-2">Custom Styled Modal</h3>
+                        <p class="text-gray-700 mb-2">This modal demonstrates multiple custom styling options:</p>
+                        <ul class="list-disc list-inside text-gray-700">
+                            <li>Custom position (top right)</li>
+                            <li>Custom background color (#8e44ad)</li>
+                            <li>Custom opacity (0.8)</li>
+                            <li>Custom blur effect (3px)</li>
+                            <li>Custom z-index (9999)</li>
+                            <li>Custom footer</li>
+                        </ul>
+                    </div>
+                </div>
+                <pre><code class="language-html">&lt;div data-swm id="customStyledModal"&gt;
+    &lt;button data-swm-btn 
+            data-swm-title="Custom Styled Modal" 
+            data-swm-position="top right"
+            data-swm-bg-color="#8e44ad" 
+            data-swm-bg-opacity="0.8" 
+            data-swm-bg-blur="3" 
+            data-swm-z-index="9999"
+            data-swm-footer="Custom Footer"&gt;
+        Custom Styled Modal
+    &lt;/button&gt;
+    &lt;div data-swm-body&gt;
+        &lt;!-- Modal content --&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2 class="text-2xl font-bold mb-4">Programmatically Created Modals</h2>
+        <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <button id="createProgrammaticModal" class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded mb-4">
+                Create Programmatic Modal
+            </button>
+            <pre><code class="language-javascript">document.getElementById('createProgrammaticModal').addEventListener('click', function() {
+    SWM.createModal({
+        title: 'Programmatically Created Modal',
+        content: '&lt;p&gt;This modal was created using JavaScript!&lt;/p&gt;',
+        footer: 'Custom Footer',
+        position: 'center',
+        bgColor: '#3498db',
+        bgOpacity: '0.8',
+        bgBlur: '5',
+        zIndex: '9999'
+    });
+});</code></pre>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../dist/swm.js"></script>
+    <script>
+        document.getElementById('createProgrammaticModal').addEventListener('click', function() {
+            SWM.createModal({
+                title: 'Programmatically Created Modal',
+                content: '<p>This modal was created using JavaScript!</p>',
+                footer: 'Custom Footer',
+                position: 'center',
+                bgColor: '#3498db',
+                bgOpacity: '0.8',
+                bgBlur: '5',
+                zIndex: '9999'
+            });
+        });
+    </script>
+</body>
+</html>
