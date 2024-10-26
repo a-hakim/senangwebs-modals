@@ -1,6 +1,6 @@
 {
   "name": "senangwebs-modals",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lightweight JavaScript library that enables easy creation and customization of modal dialogs using HTML data attributes.",
   "main": "index.js",
   "directories": {
@@ -11,7 +11,7 @@
     "dev": "webpack --mode development --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["loading", "indicator", "web", "customizable"],
+  "keywords": ["modal", "dialog", "web", "customizable"],
   "author": "a-hakim",
   "license": "MIT",
   "devDependencies": {
