@@ -14,15 +14,13 @@
         }
     </style>
 </head>
-<body class="bg-gray-100 min-h-screen p-8">
-    <div class="max-w-6xl mx-auto">
-        <h1 class="text-3xl font-bold text-center mb-8">SenangWebs Modals Demo</h1>
+<body class="bg-gray-100 min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         
-        <h2 class="text-2xl font-bold mb-4">HTML Attribute-based Modals</h2>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            <div class="bg-white p-6 rounded-lg shadow-md">
+        <h4 class="text-xl lg:text-2xl capitalize font-bold mb-4">HTML Attribute-based Modals</h4>
+            <div class="rounded-lg lg:rounded-2xl overflow-hidden flex flex-col justify-between border border-neutral-200 bg-white p-4 mb-8">
                 <div data-swm id="centerModal">
-                    <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mb-4" 
+                    <button class="bg-blue-600 text-white rounded-lg text-lg font-semibold px-6 w-full h-12 flex items-center justify-center hover:opacity-80" 
                             data-swm-btn data-swm-title="Center Modal" data-swm-position="center"
                             data-swm-bg-color="#000000" data-swm-bg-opacity="0.5">
                         Center Modal
@@ -43,15 +41,15 @@
         &lt;p&gt;This is a centered modal with default background color and 50% opacity.&lt;/p&gt;
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-                <button onclick="SWM.openModal('#centerModal')" class="mt-4 w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+                <button onclick="SWM.openModal('#centerModal')" class="bg-green-600 text-white rounded-lg text-lg font-semibold px-6 w-full h-12 flex items-center justify-center hover:opacity-80">
                     Open Center Modal via API
                 </button>
                 <pre><code class="language-javascript">SWM.openModal('#centerModal');</code></pre>
             </div>
-
-            <div class="bg-white p-6 rounded-lg shadow-md">
+            <h4 class="text-xl lg:text-2xl capitalize font-bold mb-4">Custom Modals</h4>
+            <div class="rounded-lg lg:rounded-2xl overflow-hidden flex flex-col justify-between border border-neutral-200 bg-white p-4 mb-8">
                 <div data-swm id="customStyledModal">
-                    <button class="w-full bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded mb-4" 
+                    <button class="bg-purple-600 text-white rounded-lg text-lg font-semibold px-6 w-full h-12 flex items-center justify-center hover:opacity-80" 
                             data-swm-btn data-swm-title="Custom Styled Modal" data-swm-position="top right" 
                             data-swm-bg-color="#8e44ad" data-swm-bg-opacity="0.8" data-swm-bg-blur="3" data-swm-z-index="9999"
                             data-swm-footer="Custom Footer">
@@ -86,11 +84,11 @@
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
             </div>
-        </div>
+
 
         <h2 class="text-2xl font-bold mb-4">Programmatically Created Modals</h2>
-        <div class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <button id="createProgrammaticModal" class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded mb-4">
+        <div class="rounded-lg lg:rounded-2xl overflow-hidden flex flex-col justify-between border border-neutral-200 bg-white p-4 mb-8">
+            <button id="createProgrammaticModal" class="bg-violet-600 text-white rounded-lg text-lg font-semibold px-6 w-full h-12 flex items-center justify-center hover:opacity-80">
                 Create Programmatic Modal
             </button>
             <pre><code class="language-javascript">document.getElementById('createProgrammaticModal').addEventListener('click', function() {
