@@ -1,6 +1,6 @@
 {
   "name": "senangwebs-modals",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Lightweight JavaScript library that enables easy creation and customization of modal dialogs using HTML data attributes.",
   "main": "index.js",
   "directories": {
