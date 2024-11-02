@@ -66,7 +66,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    scale: 1.5;
+    margin: auto 0;
   }
   
   .swm-modal-body {
