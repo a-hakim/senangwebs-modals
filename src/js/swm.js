@@ -47,15 +47,15 @@
 
       // Set modal position using flexbox
       const positionStyles = {
-          'top left': { alignItems: 'flex-start', justifyContent: 'flex-start', padding: '20px' },
-          'top right': { alignItems: 'flex-start', justifyContent: 'flex-end', padding: '20px' },
-          'bottom left': { alignItems: 'flex-end', justifyContent: 'flex-start', padding: '20px' },
-          'bottom right': { alignItems: 'flex-end', justifyContent: 'flex-end', padding: '20px' },
-          'center': { alignItems: 'center', justifyContent: 'center' },
-          'top': { alignItems: 'flex-start', justifyContent: 'center', padding: '20px 0' },
-          'bottom': { alignItems: 'flex-end', justifyContent: 'center', padding: '20px 0' },
-          'left': { alignItems: 'center', justifyContent: 'flex-start', padding: '0 20px' },
-          'right': { alignItems: 'center', justifyContent: 'flex-end', padding: '0 20px' }
+          'top left': { alignItems: 'flex-start', justifyContent: 'flex-start', padding: '1rem' },
+          'top right': { alignItems: 'flex-start', justifyContent: 'flex-end', padding: '1rem' },
+          'bottom left': { alignItems: 'flex-end', justifyContent: 'flex-start', padding: '1rem' },
+          'bottom right': { alignItems: 'flex-end', justifyContent: 'flex-end', padding: '1rem' },
+          'center': { alignItems: 'center', justifyContent: 'center', padding: '1rem' },
+          'top': { alignItems: 'flex-start', justifyContent: 'center', padding: '1rem 0' },
+          'bottom': { alignItems: 'flex-end', justifyContent: 'center', padding: '1rem 0' },
+          'left': { alignItems: 'center', justifyContent: 'flex-start', padding: '0 1rem' },
+          'right': { alignItems: 'center', justifyContent: 'flex-end', padding: '0 1rem' }
       };
 
       const selectedPosition = positionStyles[options.position] || positionStyles['center'];
