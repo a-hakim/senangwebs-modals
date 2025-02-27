@@ -1,6 +1,3 @@
-[![SenangWebs](https://raw.githubusercontent.com/a-hakim/senangwebs-modals/refs/heads/main/src/sw_banner.webp)](https://use.senangwebs.com)
-Learn more at [SenangWebs.com](https://use.senangwebs.com)
-
 # SenangWebs Modals (SWM)
 
 SenangWebs Modals (SWM) is a lightweight JavaScript library that enables easy creation and customization of modal dialogs using HTML data attributes or JavaScript. With minimal setup, you can add engaging modals to your web pages, enhancing user interaction and experience.
