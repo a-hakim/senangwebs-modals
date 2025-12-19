@@ -2,6 +2,8 @@
 
 SenangWebs Modals (SWM) is a lightweight JavaScript library that enables easy creation and customization of modal dialogs using HTML data attributes or JavaScript. With minimal setup, you can add engaging modals to your web pages, enhancing user interaction and experience.
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE.md)
+
 ## Features
 
 - Easy to integrate with existing projects
