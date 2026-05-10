@@ -1,19 +1,36 @@
 {
   "name": "senangwebs-modals",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "description": "Lightweight JavaScript library that enables easy creation and customization of modal dialogs using HTML data attributes.",
-  "main": "index.js",
+  "main": "dist/swm.js",
+  "files": [
+    "dist/"
+  ],
   "directories": {
     "example": "examples"
   },
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack --mode development --watch",
+    "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["modal", "dialog", "web", "customizable"],
+  "keywords": [
+    "modal",
+    "dialog",
+    "web",
+    "customizable"
+  ],
   "author": "a-hakim",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/a-hakim/senangwebs-modals"
+  },
+  "bugs": {
+    "url": "https://github.com/a-hakim/senangwebs-modals/issues"
+  },
+  "homepage": "https://github.com/a-hakim/senangwebs-modals#readme",
   "devDependencies": {
     "@babel/core": "^7.25.8",
     "@babel/preset-env": "^7.25.8",

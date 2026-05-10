@@ -2,19 +2,19 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: {
-    swm: './src/js/swm.js',
-    styles: './src/css/swm.css'
-  },
+  entry: './src/js/swm.js',
   output: {
-    filename: '[name].js',
+    filename: 'swm.js',
     path: path.resolve(__dirname, 'dist'),
     library: {
       name: 'SWM',
       type: 'umd',
+      export: 'default',
     },
-    globalObject: 'this'
+    globalObject: 'this',
+    clean: true
   },
+  devtool: 'source-map',
   module: {
     rules: [
       {

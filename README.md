@@ -12,10 +12,14 @@ SenangWebs Modals (SWM) is a lightweight JavaScript library that enables easy cr
 - Custom z-index support
 - Smooth open and close animations
 - Flexible content support with custom titles and footers
+- Keyboard support: close modals with the Escape key
+- Accessibility: ARIA attributes for screen readers
+- Focus management: focus moves to modal on open and returns on close
 - Responsive and works on all modern browsers
 
 ## Examples
-[Link to examples page - replace with actual link when available]
+
+See `examples/index.html` for a live demo.
 
 ## Installation
 
@@ -85,6 +89,40 @@ Open a modal defined with HTML attributes using JavaScript:
 SWM.openModal('#myModal');
 ```
 
+You can also open modals without a trigger button by placing configuration attributes on the container:
+
+```html
+<div data-swm id="autoModal" data-swm-title="Auto Modal" data-swm-position="center">
+  <div data-swm-body>
+    <p>This modal can be opened without a trigger button.</p>
+  </div>
+</div>
+```
+
+```javascript
+SWM.openModal('#autoModal');
+```
+
+### 4. Closing Modals
+
+Modals can be closed by:
+
+- Clicking the close (X) button
+- Clicking outside the modal on the overlay
+- Pressing the Escape key
+
+Programmatically created modals return a `closeModal` method:
+
+```javascript
+const { closeModal } = SWM.createModal({
+  title: 'Closable Modal',
+  content: '<p>Close this modal programmatically.</p>'
+});
+
+// Close the modal later
+closeModal();
+```
+
 ## Configuration Options
 
 You can configure modals using the following options:
@@ -93,7 +131,7 @@ You can configure modals using the following options:
 |--------|----------------|---------------------|-------------|
 | Title | `data-swm-title` | `title` | Sets the title of the modal |
 | Position | `data-swm-position` | `position` | Sets the position of the modal |
-| Background Color | `data-swm-bg-color` | `bgColor` | Sets the background color of the modal overlay |
+| Background Color | `data-swm-bg-color` | `bgColor` | Sets the background color of the modal overlay (hex format) |
 | Background Opacity | `data-swm-bg-opacity` | `bgOpacity` | Sets the opacity of the modal overlay (0 to 1) |
 | Background Blur | `data-swm-bg-blur` | `bgBlur` | Sets the blur effect for the background (in pixels) |
 | Z-Index | `data-swm-z-index` | `zIndex` | Sets the z-index of the modal overlay |
@@ -132,4 +170,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Support
 
-If you encounter any issues or have questions, please file an issue on the GitHub repository.
+If you encounter any issues or have questions, please file an issue on the [GitHub repository](https://github.com/a-hakim/senangwebs-modals/issues).
