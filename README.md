@@ -15,8 +15,8 @@ SenangWebs Modals (SWM) is a lightweight JavaScript library that enables easy cr
 - Smooth open and close animations
 - Flexible content support with custom titles and footers
 - Keyboard support: close modals with the Escape key
-- Accessibility: ARIA attributes for screen readers
-- Focus management: focus moves to modal on open and returns on close
+- Accessibility: dialog ARIA attributes and keyboard focus containment
+- Focus management: focus enters the modal, stays trapped while open, and returns on close
 - Responsive and works on all modern browsers
 
 ## Examples
@@ -124,6 +124,14 @@ const { closeModal } = SWM.createModal({
 // Close the modal later
 closeModal();
 ```
+
+## Keyboard and Accessibility
+
+- Focus moves to the close button when a modal opens.
+- `Tab` and `Shift+Tab` cycle through controls within the topmost modal.
+- `Escape` closes only the topmost modal.
+- Focus returns to the element that was active before the modal opened.
+- The modal panel uses `role="dialog"`, `aria-modal="true"`, and an accessible title.
 
 ## Configuration Options
 

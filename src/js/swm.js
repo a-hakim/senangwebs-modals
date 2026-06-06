@@ -2,6 +2,25 @@ import '../css/swm.css';
 
 let modalIdCounter = 0;
 const openModals = [];
+const focusableSelector = [
+  'a[href]',
+  'area[href]',
+  'button:not([disabled])',
+  'input:not([disabled]):not([type="hidden"])',
+  'select:not([disabled])',
+  'textarea:not([disabled])',
+  'iframe',
+  'object',
+  'embed',
+  '[contenteditable]',
+  '[tabindex]:not([tabindex="-1"])'
+].join(',');
+
+function getFocusableElements(container) {
+  return Array.from(container.querySelectorAll(focusableSelector)).filter((element) => {
+    return element.getAttribute('aria-hidden') !== 'true' && element.getClientRects().length > 0;
+  });
+}
 
 function hexToRgba(hex, opacity) {
   if (!hex || !/^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/.test(hex)) {
@@ -62,8 +81,6 @@ const positionStyles = {
 function createModal(options) {
   const modalOverlay = document.createElement('div');
   modalOverlay.className = 'swm-modal-overlay';
-  modalOverlay.setAttribute('role', 'dialog');
-  modalOverlay.setAttribute('aria-modal', 'true');
 
   const bgColor = options.bgColor || '#000000';
   const bgOpacity = options.bgOpacity != null ? parseFloat(options.bgOpacity) : 0.5;
@@ -76,8 +93,16 @@ function createModal(options) {
 
   const modal = document.createElement('div');
   modal.className = 'swm-modal';
+  modal.setAttribute('role', 'dialog');
+  modal.setAttribute('aria-modal', 'true');
+  modal.setAttribute('tabindex', '-1');
   const titleId = `swm-title-${++modalIdCounter}`;
-  modal.setAttribute('aria-labelledby', titleId);
+  const titleText = options.title || '';
+  if (titleText) {
+    modal.setAttribute('aria-labelledby', titleId);
+  } else {
+    modal.setAttribute('aria-label', 'Modal dialog');
+  }
 
   const header = document.createElement('div');
   header.className = 'swm-modal-header';
@@ -85,7 +110,7 @@ function createModal(options) {
   const title = document.createElement('h2');
   title.className = 'swm-modal-title';
   title.id = titleId;
-  title.textContent = options.title || '';
+  title.textContent = titleText;
 
   const closeBtn = document.createElement('button');
   closeBtn.className = 'swm-modal-close';
@@ -124,8 +149,31 @@ function createModal(options) {
   }
 
   function keydownHandler(e) {
-    if (e.key === 'Escape' && openModals[openModals.length - 1] === modalOverlay) {
+    if (openModals[openModals.length - 1] !== modalOverlay) return;
+
+    if (e.key === 'Escape') {
       closeModal();
+      return;
+    }
+
+    if (e.key !== 'Tab') return;
+
+    const focusableElements = getFocusableElements(modal);
+    if (focusableElements.length === 0) {
+      e.preventDefault();
+      modal.focus();
+      return;
+    }
+
+    const firstFocusableElement = focusableElements[0];
+    const lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+    if (e.shiftKey && (document.activeElement === firstFocusableElement || !modal.contains(document.activeElement))) {
+      e.preventDefault();
+      lastFocusableElement.focus();
+    } else if (!e.shiftKey && (document.activeElement === lastFocusableElement || !modal.contains(document.activeElement))) {
+      e.preventDefault();
+      firstFocusableElement.focus();
     }
   }
   document.addEventListener('keydown', keydownHandler);
